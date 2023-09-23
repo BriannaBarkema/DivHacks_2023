@@ -1,45 +1,46 @@
 {"intents": [
         {"tag": "greeting",
          "patterns": ["Hi", "How are you", "Is anyone there?", "Hello", "Good day", "Whats up"],
-         "responses": ["Hello", "Hello! Are you here for sepsis detection?", "Good to see you again!", "Hi there, how can I help?"],
+         "responses": ["Hello", "Hello! I am Sepsis information detector, are you here for sepsis detection?"],
+         "context_set": ""
+        },
+        {"tag": "no_sepsis_1",
+         "patterns": ["No I am not here for sepsis detection", "no", "nope", "I only have increased heart rate, cold, and fatigue"],
+         "responses": ["I can only help you with sepsis related queries, if you have any other issues kindly connect with a medical professional"],
          "context_set": ""
         },
         {"tag": "sepsis_greeting",
-         "patterns": ["yes, I am here for the sepsis detection", "yes, I think I have sepsis", "I'm not sure if I have sepsis"],
+         "patterns": ["yes, I am here for the sepsis detection", "yes, I think I have sepsis", "I'm not sure if I have sepsis","yes","yep"],
          "responses": ["What is your age group (adult/5-18 years old/under 5 years old)?"],
          "context_set": ""
         },
-        {"tag": "thanks",
-         "patterns": ["Thanks", "Thank you", "That's helpful", "Nice"],
-         "responses": ["Happy to help!", "Any time!", "My pleasure","Thank You too!"]
-        },
-        {"tag": "name",
-         "patterns": ["what is your name", "what should I call you", "whats your name?"],
-         "responses": ["My name is Healthcare Chatbot.", "I'm Healthcare Chatbot", "Hello, you can call me HealthCB a.k.a Healthcare Chatbot"],
+         {"tag": "sepsis_child",
+         "patterns": ["5-18 years old", "5", "18", "under eighteen", "child", "my child is 5 years old"],
+         "responses": ["Do they have any of these symptoms: skin feels unusally cold, looks pale, has a bluish tint, or spotty, they have a rash that does not fade when pressed on, rapid breathing, convulsion, difficult to wake, or feel extremely tired? "],
          "context_set": ""
         },
-        {"tag": "purpose",
-         "patterns": ["so what do you do?", "what can you do", "how can you assist me", "what is your purpose"],
-         "responses": ["Hi I am an AI driven Healthcare Chatbot, I would be pleased to assist you on basic healthcare related diagnosis"],
+        {"tag": "sepsis_child_response",
+         "patterns": ["skin feels cold", "pale skin", "skin has bluish tint", "spotty skin", "pressed rash doesn't fade", "rapid breathing", "convulsion", "difficult to wake", "extremely tired"],
+         "responses": ["You may likely be experiencing sepsis, you should seek medical assistance immediately. This chatbot is for informational purposes only and not a substitute for professional medical advice, diagnosis, or treatment.", "Would you like more information on sepsis?"],
          "context_set": ""
         },
-        {"tag": "Assistance",
-         "patterns": ["I am having a problem", "I am not feeling well", "my health is not good", "I need your help please", "can you please help me", "I am having a serious medical condition", "I am going through some illness please help me"],
-         "responses": ["Hey! no need to panic I am always here for you can you please elaborate all the symptoms you are facing", "Please tell me what problems you are facing.", "What all symptoms you are facing."],
+        {"tag": "sepsis_infant",
+         "patterns": ["under five", "he is an infant", "she is an infant", "she is a baby", "he is a baby", "my child is under 5 years old", "under 5 years old"],
+         "responses": ["Are they experiencing any of these symptoms: vomiting, no urination in the last 12 hours, or not eating?"],
          "context_set": ""
         },
-        {"tag": "Good Bye",
-         "patterns": ["Okay see you later", "Bye", "Good Bye"],
-         "responses": ["Bye, I hope to see you soon!", "Good Bye, I hope I was helpful", "Bye"],
+        {"tag": "sepsis_infant_response",
+         "patterns": ["yes, vomiting", "yes, no urination in last 12 hours", "yes, not eating", "yes all three", "yes vomiting, no urination, not eating"],
+         "responses": ["You may likely be experiencing sepsis, you should seek medical assistance immediately. This chatbot is for informational purposes only and not a substitute for professional medical advice, diagnosis, or treatment.", "Would you like more information on sepsis?"],
          "context_set": ""
         },
         {"tag": "sepsis_adult",
-         "patterns": ["adult", "fever", "increased heart rate", "temperature fluctating", "cold", "infection", "confused", "sleepy", "tired", "fatigue", "shortness of breath", "difficult to awake", "discomfort", "severe pain"],
-         "responses": ["What other symptoms are you experiencing?"]
+         "patterns": ["I am an adult", "adult"],
+         "responses": ["Okay are experiencing any of these symptoms: fever, increased heart rate, temperature fluctuating, cold, infection, confusion, tiredness, sleepiness, fatigue, shortness of breath, difficulty to wake up, discomfort, and severe pain"],
          "context_set": ""
         },
         {"tag": "sepsis_2",
-         "patterns": ["Adult", "Yes I am experiencing other symptoms", "Yes I am facing fever, increased heart rate, and temperature fluctating", "Yes I am facing cold, infection, and confusion", "Yes I am experiencing tiredness, sleepiness, fatigue", "Yes I have shortness of breath, difficult to awake, discomfort, and severe pain"],
+         "patterns": ["Yes I am experiencing these symptoms", "Yes I am facing fever, increased heart rate, and temperature fluctating", "Yes I am facing cold, infection, and confusion", "Yes I am experiencing tiredness, sleepiness, fatigue", "Yes I have shortness of breath, difficult to awake, discomfort, and severe pain"],
          "responses": ["It is possible that you currently experiencing sepsis, you should seek medical assistance immediately. This chatbot is for informational purposes only and not a substitute for professional medical advice, diagnosis, or treatment.", "Would you like more information on sepsis?"],
          "context_set": ""
         },
@@ -48,7 +49,7 @@
          "responses": ["It occurs when your immune system stops making an effort to fight an infection and turns on itself. It is a life-threatening condition and requires immediate medical response. For more information visit sepsis.org"],
          "context_set": ""
         },
-        {"tag": "no_sepsis",
+        {"tag": "no_sepsis_2",
          "patterns": ["No I don't have these symptoms", "I only have one symptom", "I only have two of these symptoms", "I only have increased heart rate, cold, and fatigue"],
          "responses": ["You most likely are not experiencing sepsis, if you suspect sepsis or any medical condition, you should seek medical attention from a qualified healthcare provider.", "Is there anything else I can help you with?"],
          "context_set": ""
@@ -58,24 +59,18 @@
          "responses": ["If you are an infant or a senior, have serious or chronic illnesses, or a weakened immune system, then you are at higher risk of sepsis. For more information visit sepsis.org."],
          "context_set": ""
         },
-         {"tag": "sepsis_child",
-         "patterns": ["5-18 years old", "5", "18", "under eighteen", "child"],
-         "responses": ["Do they have any of these symptoms: skin feels unusally cold, looks pale, has a bluish tint, or spotty, they have a rash that does not fade when pressed on, rapid breathing, convulsion, difficult to wake, or feel extremely tired? "],
+        {"tag": "Assistance",
+         "patterns": ["I am having a problem", "I am not feeling well", "my health is not good", "I need your help please", "can you please help me", "I am having a serious medical condition", "I am going through some illness please help me"],
+         "responses": ["Hey! no need to panic I am always here for you can you please elaborate all the symptoms you are facing", "Please tell me what problems you are facing.", "What all symptoms you are facing."],
          "context_set": ""
-        } 
-        {"tag": "sepsis_child_response",
-         "patterns": ["skin feels cold", "pale skin", "skin has bluish tint", "spotty skin", "pressed rash doesn't fade", "rapid breathing", "convulsion", "difficult to wake", "extremely tired"],
-         "responses": ["You may likely be experiencing sepsis, you should seek medical assistance immediately. This chatbot is for informational purposes only and not a substitute for professional medical advice, diagnosis, or treatment.", "Would you like more information on sepsis?"],
-         "context_set": ""
-        }
-        {"tag": "sepsis_infant",
-         "patterns": ["under five", "infant", "baby"],
-         "responses": ["Are they experiencing any of these symptoms: vomiting, no urination in the last 12 hours, or not eating?"],
-         "context_set": ""
-        }
-        {"tag": "sepsis_infant_response",
-         "patterns": ["vomiting", "no urination in last 12 hours", "not eating"],
-         "responses": ["You may likely be experiencing sepsis, you should seek medical assistance immediately. This chatbot is for informational purposes only and not a substitute for professional medical advice, diagnosis, or treatment.", "Would you like more information on sepsis?"],
+        },
+        {"tag": "thanks",
+         "patterns": ["Thanks", "Thank you", "That's helpful", "Nice"],
+         "responses": ["Happy to help!", "Any time!", "My pleasure","Thank You too!"]
+        },
+        {"tag": "Good Bye",
+         "patterns": ["Okay see you later", "Bye", "Good Bye"],
+         "responses": ["Bye, I hope to see you soon!", "Good Bye, I hope I was helpful", "Bye"],
          "context_set": ""
         }
    ]
